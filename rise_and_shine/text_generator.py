@@ -16,7 +16,7 @@ class TextGenerator:
         Speech should start with Good morning.
         Add inspiration quote at the end"""
 
-    def send_generate_motivation(self, bio):
+    def send_generate_motivation(self, bio=""):
         response = openai.Completion.create(
             model="text-davinci-003",
             prompt=self.__motivation_speech_prompt(bio),
@@ -28,7 +28,7 @@ class TextGenerator:
 
 
 if __name__ == "__main__":
-    bio_txt = open("bio_example.txt", "r")
+    bio_txt = open("../bio_example.txt", "r")
     print(str(bio_txt.read()).strip())
     tg = TextGenerator()
     print(tg.send_generate_motivation(bio=str(bio_txt.read()).strip()))

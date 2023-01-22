@@ -21,7 +21,7 @@ class TextToSpeech:
 
 if __name__ == "__main__":
     ttp = TextToSpeech()
-    file = open('speech.mp3', 'wb')
+    file = open('../speech.mp3', 'wb')
     file.write(ttp.text_to_speech()['AudioStream'].read())
     file.close()
 
