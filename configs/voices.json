@@ -1,0 +1,11 @@
+{
+  "czech":
+          {
+            "male": "cs-CZ-AntoninNeural",
+            "female": "cs-CZ-VlastaNeural"
+          },
+  "english": {
+            "male": "en-US-JasonNeural",
+            "female": "en-US-JaneNeural"
+  }
+}
