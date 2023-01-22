@@ -1,23 +1,32 @@
 from app import app
-from flask import jsonify, Response
-from rise_and_shine.text_generator import TextGenerator
+import uuid
+import os
+from flask import request, Response
 from rise_and_shine.azure_text_to_speech import AzureTextToSpeech
 
-tg = TextGenerator()
 tts = AzureTextToSpeech()
 
 
-@app.route("/")
-def hello():
-    return jsonify(message="Hello, World!")
-
-
-# TODO Adjust this route so it would be able to accept POST request with json payload,
-#      with parameters bio and voice (male, female)
-@app.route("/api/v1/generate")
+@app.route("/api/v1/generate", methods=["POST"])
 def generate_text():
-    return Response(tts.convert_to_speech(gender="female", language="english",
-                                          text=tg.send_generate_motivation(language="english",
-                                                                           gender="female")),
-                    mimetype="audio/mp3")
+    file_id = uuid.uuid4()
+    gender = request.get_json()["gender"]
+    language = request.get_json()["language"]
+    bio = request.get_json()["bio"]
+
+    try:
+        tts.convert_to_speech(file_id=file_id,
+                              gender=gender,
+                              language=language,
+                              bio=bio)
+        with open(f"{file_id}.wav", "rb") as f:
+            file_data = f.read()
+        response = Response(file_data, content_type="audio/wav",
+                            headers={"Content-disposition": f"attachment;{file_id}.wav"})
+        return response
+    finally:
+        os.remove(f"{file_id}.wav")
+
+
+
 

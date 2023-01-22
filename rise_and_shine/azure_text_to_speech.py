@@ -1,15 +1,16 @@
 import os
 import json
+import psutil
+from rise_and_shine.text_generator import TextGenerator
 import azure.cognitiveservices.speech as speechsdk
 
 
 class AzureTextToSpeech:
     def __init__(self):
-        # This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
         self.speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'),
                                                     region=os.environ.get('SPEECH_REGION'))
-        self.audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
         self.voices_config = json.load(open(r"configs/voices.json"))
+        self.text_gen = TextGenerator()
 
     def __prepare_ssml(self, language, gender, text):
         speaker = self.voices_config[language][gender]
@@ -24,10 +25,12 @@ class AzureTextToSpeech:
                 </speak>
                """
 
-    def convert_to_speech(self, language, gender, text):
+    def convert_to_speech(self, file_id, language, gender, bio):
+        self.audio_config = speechsdk.audio.AudioOutputConfig(filename=f"{file_id}.wav")
         speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=self.speech_config,
                                                          audio_config=self.audio_config)
 
+        text = self.text_gen.send_generate_motivation(gender=gender, language=language, bio=bio)
         speech_synthesis_result = speech_synthesizer.speak_ssml_async(
             self.__prepare_ssml(language, gender, text)).get()
 
@@ -43,5 +46,5 @@ class AzureTextToSpeech:
 
 
 if __name__ == "__main__":
-    atts = AzureTextToSpeech()
-    atts.convert_to_speech("czech", "male", "Ahoj světe! Toto je příklad textu pro převod na hlas pomocí Azure Speech.")
+    azure_text_speech = AzureTextToSpeech()
+    azure_text_speech.convert_to_speech("english", "female", "This is text that needs to be said")
