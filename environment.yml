@@ -1,0 +1,13 @@
+name: rise-and-shine
+channels:
+  - defaults
+dependencies:
+  - python=3.8
+  - gunicorn
+  - pip:
+    - flask==2.0.2
+    - openai==0.19.0
+    - azure-cognitiveservices-speech
+
+
+
