@@ -1,10 +1,22 @@
-FROM continuumio/anaconda3
+FROM python:3.8-slim
 
-RUN conda update conda
-COPY environment.yml /tmp/environment.yml
-RUN conda env create -f /tmp/environment.yml
+ARG SPEECH_KEY
+ARG SPEECH_REGION
+ARG OPENAI_API_KEY
+ARG AWS_ACCESS_KEY_ID
+ARG AWS_SECRET_ACCESS_KEY
+ARG AWS_DEFAULT_REGION
 
-ENV PATH /opt/conda/envs/myenv/bin:$PATH
+ENV SPEECH_REGION $SPEECH_REGION
+ENV SPEECH_KEY $SPEECH_KEY
+ENV OPENAI_API_KEY $OPENAI_API_KEY
+
+ENV AWS_ACCESS_KEY_ID $AWS_ACCESS_KEY_ID
+ENV AWS_SECRET_ACCESS_KEY $AWS_SECRET_ACCESS_KEY
+ENV AWS_DEFAULT_REGION $AWS_DEFAULT_REGION
+
+ADD ./requirements.txt ./requirements.txt
+RUN pip install --no-cache-dir -r ./requirements.txt
 
 COPY . /app
 WORKDIR /app

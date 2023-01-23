@@ -1,6 +1,5 @@
 import os
 import json
-import psutil
 from rise_and_shine.text_generator import TextGenerator
 import azure.cognitiveservices.speech as speechsdk
 
