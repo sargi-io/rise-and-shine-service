@@ -76,9 +76,9 @@ jobs:
             --build-arg SPEECH_KEY="${{ secrets.SPEECH_KEY }}" \
             --build-arg SPEECH_REGION="${{ secrets.SPEECH_REGION }}" \
             --build-arg OPENAI_API_KEY="${{ secrets.OPENAI_API_KEY }}" \
-            -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+            -t 932026534651.dkr.ecr.eu-central-1.amazonaws.com/aws-rise-ecr:$IMAGE_TAG .
+        docker push 932026534651.dkr.ecr.eu-central-1.amazonaws.com/aws-rise-ecr:$IMAGE_TAG
+        echo "::set-output name=image::932026534651.dkr.ecr.eu-central-1.amazonaws.com/aws-rise-ecr:$IMAGE_TAG"
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
