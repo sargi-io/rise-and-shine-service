@@ -7,7 +7,13 @@
       "environmentFiles": null,
       "logConfiguration": null,
       "entryPoint": [],
-      "portMappings": [],
+      "portMappings": [
+        {
+          "hostPort": 0,
+          "protocol": "tcp",
+          "containerPort": 8000
+        }
+      ],
       "command": [],
       "linuxParameters": null,
       "cpu": 0,
@@ -50,7 +56,7 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:eu-central-1:932026534651:task-definition/rise-and-shine:9",
+  "taskDefinitionArn": "arn:aws:ecs:eu-central-1:932026534651:task-definition/rise-and-shine:11",
   "family": "rise-and-shine",
   "requiresAttributes": [
     {
@@ -67,7 +73,7 @@
   "networkMode": null,
   "runtimePlatform": null,
   "cpu": "1024",
-  "revision": 9,
+  "revision": 11,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
