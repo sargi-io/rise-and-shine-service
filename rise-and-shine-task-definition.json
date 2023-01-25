@@ -7,13 +7,7 @@
       "environmentFiles": null,
       "logConfiguration": null,
       "entryPoint": [],
-      "portMappings": [
-        {
-          "hostPort": 8000,
-          "protocol": "tcp",
-          "containerPort": 8000
-        }
-      ],
+      "portMappings": [],
       "command": [],
       "linuxParameters": null,
       "cpu": 0,
@@ -29,7 +23,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "932026534651.dkr.ecr.eu-central-1.amazonaws.com/aws-rise-ecr:latest",
+      "image": "932026534651.dkr.ecr.eu-central-1.amazonaws.com/aws-rise-ecr",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -46,7 +40,7 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": "rise-and-shine"
+      "name": "aws-rise-ecr"
     }
   ],
   "placementConstraints": [],
@@ -56,7 +50,7 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:eu-central-1:932026534651:task-definition/rise-and-shine:8",
+  "taskDefinitionArn": "arn:aws:ecs:eu-central-1:932026534651:task-definition/rise-and-shine:9",
   "family": "rise-and-shine",
   "requiresAttributes": [
     {
@@ -73,7 +67,7 @@
   "networkMode": null,
   "runtimePlatform": null,
   "cpu": "1024",
-  "revision": 8,
+  "revision": 9,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
