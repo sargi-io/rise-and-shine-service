@@ -6,7 +6,7 @@
       "dnsSearchDomains": null,
       "environmentFiles": null,
       "logConfiguration": null,
-      "entryPoint": [],
+      "entryPoint": null,
       "portMappings": [
         {
           "hostPort": 0,
@@ -14,7 +14,7 @@
           "containerPort": 8000
         }
       ],
-      "command": [],
+      "command": null,
       "linuxParameters": null,
       "cpu": 0,
       "environment": [],
@@ -52,7 +52,7 @@
       "dnsSearchDomains": null,
       "environmentFiles": null,
       "logConfiguration": null,
-      "entryPoint": [],
+      "entryPoint": null,
       "portMappings": [
         {
           "hostPort": 0,
@@ -60,7 +60,7 @@
           "containerPort": 8000
         }
       ],
-      "command": [],
+      "command": null,
       "linuxParameters": null,
       "cpu": 0,
       "environment": [],
@@ -102,7 +102,7 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:eu-central-1:932026534651:task-definition/rise-and-shine:15",
+  "taskDefinitionArn": "arn:aws:ecs:eu-central-1:932026534651:task-definition/rise-and-shine:17",
   "family": "rise-and-shine",
   "requiresAttributes": [
     {
@@ -118,8 +118,8 @@
   ],
   "networkMode": null,
   "runtimePlatform": null,
-  "cpu": "1024",
-  "revision": 15,
+  "cpu": "2048",
+  "revision": 17,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
