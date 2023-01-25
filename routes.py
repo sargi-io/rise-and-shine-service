@@ -6,6 +6,9 @@ from rise_and_shine.azure_text_to_speech import AzureTextToSpeech
 
 tts = AzureTextToSpeech()
 
+@app.route("/")
+def hello_world():
+    return "Hello world"
 
 @app.route("/api/v1/generate", methods=["POST"])
 def generate_text():
