@@ -102,7 +102,7 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:eu-central-1:932026534651:task-definition/rise-and-shine:17",
+  "taskDefinitionArn": "arn:aws:ecs:eu-central-1:932026534651:task-definition/rise-and-shine:19",
   "family": "rise-and-shine",
   "requiresAttributes": [
     {
@@ -118,8 +118,8 @@
   ],
   "networkMode": null,
   "runtimePlatform": null,
-  "cpu": "2048",
-  "revision": 17,
+  "cpu": "1000",
+  "revision": 19,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
